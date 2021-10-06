@@ -1,0 +1,14 @@
+<br>
+<br>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+	<div th:each="individu: ${individus}" th:id="@{${individu.id} + 'couleur'}"
+		class="card text-white bg-primary mb-3" 
+		style="max-width: 18rem;">
+    	
+	<div class="card-body">
+		<h5 th:id="@{${individu.id} + 'titre'}" class="card-title" th:text="${individu.prenom}"></h5>
+		<img th:id="${individu.id}" th:alt="${individu.prenom}" th:src="@{'../img/' + ${individu.prenom} + '.PNG'}" th:onclick="|@{'masquer(' + ${individu.id} + ',&quot;' + ${individu.prenom} + '&quot;)'}|">
+	</div>
+	</div>
+</div>
+<script src="../js/javascript.js"></script>
