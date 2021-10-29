@@ -27,8 +27,7 @@
     <div class="container-md" th:if="${individus != null}">
 		<div th:insert="fragments/individu"></div>    
 	</div>
-	   <div class="container-md" th:if="${individuChoisi != null}">
-		<div th:insert="fragments/jouer"></div>    
+	   <a href="/jouer" class="link-primary">Primary link</a>
 	</div>
     <footer class="container-md" th:insert="footer/footer"></footer>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"

@@ -33,5 +33,8 @@ public class IndividuService {
 		int nombreAleatoire = (int) (Math.random() * (max - min));
 		return individu.get(nombreAleatoire);
 	}
-
+	
+	public Iterable<Individu> getTousLesIndividus() {
+		return individuRepository.findAll();
+	}
 }

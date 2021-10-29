@@ -10,6 +10,7 @@ import org.springframework.web.client.HttpClientErrorException;
 import com.quiestce.api.model.Individu;
 import com.quiestce.api.repository.IndividuRepository;
 import com.quiestce.api.service.IndividuService;
+import com.quiestce.api.service.SessionService;
 
 @Service
 public class IndividuApiService {
