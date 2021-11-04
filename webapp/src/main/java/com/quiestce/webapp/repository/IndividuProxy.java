@@ -33,10 +33,10 @@ public class IndividuProxy {
 	
 	public Individu getChoisirUnIndividu() {
 		String baseApiUrl = props.getApiUrl();
-		String getHomeopathiesUrl = baseApiUrl + "/jouer";
+		String getChoisirUnIndividuUrl = baseApiUrl + "/jouer";
 
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity <Individu> response = restTemplate.exchange(getHomeopathiesUrl, HttpMethod.GET, null,
+		ResponseEntity <Individu> response = restTemplate.exchange(getChoisirUnIndividuUrl, HttpMethod.GET, null,
 				new ParameterizedTypeReference<Individu>() {
 				});
 		return response.getBody();

@@ -1,11 +1,5 @@
 package com.quiestce.api.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,16 +16,17 @@ public class IndividuService {
 		return iterable;
 	}
 
-	public Individu getChoisirUnIndividu(Iterable<Individu> individus) {
-		int max = 0;
+	/**
+	 * Je me suis bien compliqué la vie!!
+	 * Combien il y a des personnages, random un chiggre et JUSTE un findByid!!! 
+	 * @param individus
+	 * @return
+	 */
+	public Individu getChoisirUnIndividu() {
+		int max = (int) individuRepository.count();
 		int min = 0;
-		if (individus instanceof Collection) {
-			max = ((Collection<?>) individus).size();
-		}
-		List<Individu> individu = new ArrayList<Individu>();
-		individus.forEach(individu::add);
 		int nombreAleatoire = (int) (Math.random() * (max - min));
-		return individu.get(nombreAleatoire);
+		return individuRepository.findById((long) nombreAleatoire).get();
 	}
 	
 	public Iterable<Individu> getTousLesIndividus() {

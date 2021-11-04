@@ -1,10 +1,7 @@
 package com.quiestce.api.controller;
 
-import java.util.Optional;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,18 +26,19 @@ public class IndividuController {
 	private static final Logger logger = LogManager.getLogger(IndividuController.class);
 	
 	@GetMapping("/individus")
-	public Iterable<Individu> individus() {
+	public ResponseEntity<Iterable<Individu>> getIndividus() {
+		sessionService.individuChoisi();
 		String prenomChoisi = sessionService.getPrenomChoisi();
 		if(prenomChoisi != null) {
 			logger.info("Prénom => " + prenomChoisi);
 		}
 		Iterable<Individu> individus = individuApiService.getIndividus();
-		return individus;
+		return ResponseEntity.ok(individus);
 	}
 	
 	@GetMapping("/jouer")
-	private void choisirUnIndividu() {
-		sessionService.individuChoisi();
+	private Individu choisirUnIndividu() {
+		return sessionService.individuChoisi();
 	}
 		
 }

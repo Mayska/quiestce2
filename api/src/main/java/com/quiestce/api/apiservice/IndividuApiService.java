@@ -35,7 +35,6 @@ public class IndividuApiService {
 	}
 
 	public Individu getChoisirUnIndividu() {
-		Iterable<Individu> individus = getIndividus();
-		return individuService.getChoisirUnIndividu(individus);
+		return individuService.getChoisirUnIndividu();
 	}
 }

@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS individu;
+DROP TABLE IF EXISTS questionnaire;
 
 CREATE TABLE individu (
   id INT AUTO_INCREMENT  PRIMARY KEY,
@@ -7,6 +8,11 @@ CREATE TABLE individu (
   chapeaux BOOLEAN NOT null,
   yeux BOOLEAN NOT null,
   couleur_cheveux VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE questionnaire (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  question VARCHAR(500) NOT NULL
 );
 
 -- Si c'est une fille c'est TRUE
@@ -29,3 +35,9 @@ INSERT INTO individu (prenom, sex, chapeaux, yeux, couleur_cheveux) VALUES
   ('Gaspard',FALSE,TRUE,FALSE,'blond'),
   ('Lou',TRUE,FALSE,TRUE,'noir'),
   ('Ines',TRUE,TRUE,TRUE,'marron');
+  
+  
+  
+  INSERT INTO questionnaire (question) VALUES
+  ('Il ou elle a des lunettes ?');
+  
